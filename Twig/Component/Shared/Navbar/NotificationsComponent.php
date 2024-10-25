@@ -38,6 +38,8 @@ class NotificationsComponent
         private readonly ClockInterface $clock,
         private readonly string $hubUri,
         private readonly string $environment,
+        private readonly bool $areNotificationsEnabled,
+        private readonly int $checkFrequency,
     ) {
     }
 
@@ -45,8 +47,12 @@ class NotificationsComponent
     #[ExposeInTemplate(name: 'notifications')]
     public function getNotifications(): array
     {
+        if (!$this->areNotificationsEnabled) {
+            return [];
+        }
+
         $metadata = $this->cache instanceof ItemInterface ? $this->cache->getMetadata() : [];
-        $metadata[ItemInterface::METADATA_EXPIRY] = $this->clock->now()->modify('+1 day')->getTimestamp();
+        $metadata[ItemInterface::METADATA_EXPIRY] = $this->clock->now()->modify(sprintf('+%d minutes', $this->checkFrequency))->getTimestamp();
 
         $latestVersion = $this->cache->get(self::LATEST_SYLIUS_VERSION_CACHE_KEY, function () {
             return $this->getLatestVersion();

@@ -71,6 +71,8 @@ final class NotificationsComponentTest extends TestCase
             $this->clock->reveal(),
             self::$hubUri,
             'prod',
+            true,
+            60,
         );
     }
 
