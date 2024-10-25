@@ -102,6 +102,18 @@
         </service>
 
         <service
+            id="sylius_admin.twig.component.exchange_rate.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.exchange_rate" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.exchange_rate.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\ExchangeRateType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:exchange_rate:form" />
+        </service>
+
+        <service
             id="sylius_admin.twig.component.payment_method.form"
             class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
         >
