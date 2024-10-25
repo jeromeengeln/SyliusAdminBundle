@@ -78,6 +78,18 @@
         </service>
 
         <service
+            id="sylius_admin.twig.component.customer.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.customer" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.customer.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\CustomerType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:customer:form" />
+        </service>
+
+        <service
             id="sylius_admin.twig.component.customer_group.form"
             class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
         >

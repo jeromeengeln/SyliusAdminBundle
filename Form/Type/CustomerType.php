@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Sylius\Bundle\AdminBundle\Form\Type;
 
 use Sylius\Bundle\AdminBundle\Form\EventSubscriber\AddUserFormSubscriber;
-use Sylius\Bundle\CoreBundle\Form\Type\User\ShopUserType;
 use Sylius\Bundle\CustomerBundle\Form\Type\CustomerType as BaseCustomerType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
