@@ -218,6 +218,21 @@
             <argument>%sylius.model.tax_category.class%</argument>
             <argument>Sylius\Bundle\AdminBundle\Form\Type\TaxCategoryType</argument>
 
+            <tag name="sylius.live_component.admin" key="sylius_admin:tax_category:form" />
+        </service>
+
+        <service
+            id="sylius_admin.twig.component.tax_rate.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.tax_rate" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.tax_rate.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\TaxRateType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:tax_rate:form" />
+        </service>
+
         <service
             id="sylius_admin.twig.component.render_entity_with_template"
             class="Sylius\Bundle\AdminBundle\Twig\Component\Shared\RenderEntityWithTemplateComponent"
