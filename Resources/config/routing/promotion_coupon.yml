@@ -63,6 +63,8 @@ sylius_admin_promotion_coupon_generate:
         _controller: sylius.controller.promotion_coupon::generateAction
         _sylius:
             template: "@SyliusAdmin/promotion_coupon/generate.html.twig"
+            form:
+                type: Sylius\Bundle\AdminBundle\Form\Type\PromotionCouponGeneratorInstructionType
             section: admin
             redirect:
                 route: sylius_admin_promotion_coupon_index
