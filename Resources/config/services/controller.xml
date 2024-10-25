@@ -108,8 +108,8 @@
             <argument type="string">%sylius.admin.notification.uri%</argument>
             <argument type="string">%kernel.environment%</argument>
             <argument type="service" id="Psr\Http\Message\StreamFactoryInterface" />
+            <deprecated package="sylius/admin-bundle" version="1.14">The "%service_id%" service is deprecated since 1.14 and will be removed in 2.0.</deprecated>
         </service>
-        <service id="sylius_admin.controller.notification" alias="sylius.controller.admin.notification" />
 
         <service id="Sylius\Bundle\AdminBundle\Controller\RemoveCatalogPromotionAction" public="true">
             <argument type="service" id="sylius.processor.catalog_promotion.removal" />
