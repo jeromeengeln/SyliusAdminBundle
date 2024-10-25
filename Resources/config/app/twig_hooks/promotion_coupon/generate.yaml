@@ -19,7 +19,12 @@ sylius_twig_hooks:
                 template: '@SyliusAdmin/shared/crud/common/content/header.html.twig'
                 priority: 100
             form:
-                template: '@SyliusAdmin/promotion_coupon/generate/form.html.twig'
+                component: 'sylius_admin:promotion_coupon:generator_instruction_form'
+                props:
+                    form: '@=_context.form'
+                    template: '@SyliusAdmin/promotion_coupon/generate/form.html.twig'
+                configuration:
+                    render_rest: false
                 priority: 0
 
         'sylius_admin.promotion_coupon.generate.content.header':
