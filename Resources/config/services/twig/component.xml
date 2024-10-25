@@ -11,8 +11,24 @@
 
 -->
 
-<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+<container
+    xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd"
+>
     <services>
+        <service
+            id="sylius_admin.twig.component.admin_user.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.admin_user" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.admin_user.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\AdminUserType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:admin_user:form" />
+        </service>
+
         <service
             id="sylius_admin.twig.component.catalog_promotion.form"
             class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
