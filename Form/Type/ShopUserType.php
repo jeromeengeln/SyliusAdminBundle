@@ -20,7 +20,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class ShopUserType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('plainPassword', PasswordType::class, [

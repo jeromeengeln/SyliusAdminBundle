@@ -35,12 +35,17 @@ class FormComponent
     #[LiveProp(hydrateWith: 'hydrateProduct', dehydrateWith: 'dehydrateProduct', fieldName: 'product')]
     public ProductInterface $product;
 
+    /**
+     * @param RepositoryInterface<ProductVariantInterface> $productVariantRepository
+     * @param ProductVariantFactoryInterface<ProductVariantInterface> $productVariantFactory
+     * @param ProductRepositoryInterface<ProductInterface> $productRepository
+     */
     public function __construct(
         RepositoryInterface $productVariantRepository,
         FormFactoryInterface $formFactory,
         string $resourceClass,
         string $formClass,
-        private readonly ProductVariantFactoryInterface $productFactory,
+        private readonly ProductVariantFactoryInterface $productVariantFactory,
         private readonly ProductRepositoryInterface $productRepository,
     ) {
         $this->initialize($productVariantRepository, $formFactory, $resourceClass, $formClass);
@@ -59,6 +64,6 @@ class FormComponent
     /** @return ProductVariantInterface */
     protected function createResource(): ResourceInterface
     {
-        return $this->productFactory->createForProduct($this->product);
+        return $this->productVariantFactory->createForProduct($this->product);
     }
 }
