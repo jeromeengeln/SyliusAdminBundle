@@ -150,6 +150,18 @@
         </service>
 
         <service
+            id="sylius_admin.twig.component.product_association_type.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.product_association_type" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.product_association_type.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\ProductAssociationTypeType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:product_association_type:form" />
+        </service>
+
+        <service
             id="sylius_admin.twig.component.promotion.form"
             class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
         >
