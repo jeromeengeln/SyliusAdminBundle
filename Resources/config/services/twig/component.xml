@@ -186,6 +186,18 @@
         </service>
 
         <service
+            id="sylius_admin.twig.component.shipping_category.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.shipping_category" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.shipping_category.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\ShippingCategoryType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:shipping_category:form" />
+        </service>
+
+        <service
             id="sylius_admin.twig.component.shipping_method.form"
             class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
         >
