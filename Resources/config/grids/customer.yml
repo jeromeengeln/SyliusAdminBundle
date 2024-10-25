@@ -33,9 +33,9 @@ sylius_grid:
                 enabled:
                     type: twig
                     label: sylius.ui.enabled
-                    path: user?.enabled
+                    path: .
                     options:
-                        template: "@SyliusAdmin/shared/grid/field/boolean.html.twig"
+                        template: "@SyliusAdmin/customer/grid/field/enabled.html.twig"
                         vars:
                             th_class: "w-1 text-center"
                 verified:
@@ -59,13 +59,10 @@ sylius_grid:
                         multiple: true
                         extra_options:
                             class: '%sylius.model.customer_group.class%'
-#                        TODO: these options won't work until a new tag of symfony ux is available
-#                        choice_label: name
-#                        choice_value: code
+                            choice_label: name
                     options:
                         fields: [group.id]
-#                        TODO: same case
-#                        fields: [group.code]
+
             actions:
                 main:
                     create:
