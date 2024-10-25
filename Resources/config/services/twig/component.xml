@@ -114,6 +114,18 @@
         </service>
 
         <service
+            id="sylius_admin.twig.component.locale.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.locale" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.locale.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\LocaleType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:locale:form" />
+        </service>
+
+        <service
             id="sylius_admin.twig.component.payment_method.form"
             class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
         >
