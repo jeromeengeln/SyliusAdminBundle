@@ -86,14 +86,6 @@
             <argument type='service' id="twig" />
         </service>
 
-        <service id="sylius_admin.controller.notification" class="Sylius\Bundle\AdminBundle\Controller\NotificationController">
-            <argument type="service" id="sylius.http_client" />
-            <argument type="service" id="Psr\Http\Message\RequestFactoryInterface" />
-            <argument type="string">%sylius.admin.notification.uri%</argument>
-            <argument type="string">%kernel.environment%</argument>
-            <argument type="service" id="Psr\Http\Message\StreamFactoryInterface" />
-        </service>
-
         <service id="sylius_admin.controller.remove_catalog_promotion" class="Sylius\Bundle\AdminBundle\Controller\RemoveCatalogPromotionAction">
             <argument type="service" id="sylius.processor.catalog_promotion.removal" />
         </service>
