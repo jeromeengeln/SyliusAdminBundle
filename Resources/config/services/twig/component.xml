@@ -122,16 +122,8 @@
             id="sylius_admin.twig.component.shared.navbar.notifications"
             class="Sylius\Bundle\AdminBundle\Twig\Component\Shared\Navbar\NotificationsComponent"
         >
-            <argument type="service" id="sylius.http_client" />
-            <argument type="service" id="request_stack" />
-            <argument type="service" id="Psr\Http\Message\RequestFactoryInterface" />
-            <argument type="service" id="Psr\Http\Message\StreamFactoryInterface" />
-            <argument type="service" id="cache.app" />
-            <argument type="service" id="clock" />
-            <argument type="string">%sylius.admin.notification.uri%</argument>
-            <argument type="string">%kernel.environment%</argument>
+            <argument type="service" id="sylius_admin.provider.notification" />
             <argument>%sylius.admin.notification.enabled%</argument>
-            <argument>%sylius.admin.notification.frequency%</argument>
             <tag name="sylius.twig_component" key="sylius_admin:navbar:notifications" />
         </service>
 
