@@ -66,6 +66,18 @@
         </service>
 
         <service
+            id="sylius_admin.twig.component.currency.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.currency" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.currency.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\CurrencyType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:currency:form" />
+        </service>
+
+        <service
             id="sylius_admin.twig.component.customer_group.form"
             class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
         >
