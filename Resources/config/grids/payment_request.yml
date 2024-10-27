@@ -67,6 +67,7 @@ sylius_grid:
                             sylius.ui.authorize: !php/const Sylius\Component\Payment\Model\PaymentRequestInterface::ACTION_AUTHORIZE
                             sylius.ui.cancel: !php/const Sylius\Component\Payment\Model\PaymentRequestInterface::ACTION_CANCEL
                             sylius.ui.capture: !php/const Sylius\Component\Payment\Model\PaymentRequestInterface::ACTION_CAPTURE
+                            sylius.ui.notify: !php/const Sylius\Component\Payment\Model\PaymentRequestInterface::ACTION_NOTIFY
                             sylius.ui.payout: !php/const Sylius\Component\Payment\Model\PaymentRequestInterface::ACTION_PAYOUT
                             sylius.ui.refund: !php/const Sylius\Component\Payment\Model\PaymentRequestInterface::ACTION_REFUND
                             sylius.ui.status: !php/const Sylius\Component\Payment\Model\PaymentRequestInterface::ACTION_STATUS
