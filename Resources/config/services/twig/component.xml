@@ -246,6 +246,8 @@
             id="sylius_admin.twig.component.shared.navbar.notifications"
             class="Sylius\Bundle\AdminBundle\Twig\Component\Shared\Navbar\NotificationsComponent"
         >
+            <argument type="service" id="sylius_admin.provider.notification" />
+            <argument>%sylius.admin.notification.enabled%</argument>
             <tag name="sylius.twig_component" key="sylius_admin:navbar:notifications" />
         </service>
 

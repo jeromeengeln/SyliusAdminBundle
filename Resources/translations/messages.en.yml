@@ -115,3 +115,5 @@ sylius:
         view_in_store: 'View in store'
         work_in_progress: Work in progress
         empty_date: empty
+        notifications:
+            new_version_of_sylius_available: 'There is a new version of Sylius available. Contact your technician to upgrade.'

@@ -13,16 +13,25 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\AdminBundle\Twig\Component\Shared\Navbar;
 
+use Sylius\Bundle\AdminBundle\Notification\NotificationProviderInterface;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 class NotificationsComponent
 {
-    /**
-     * @return array<string, mixed>
-     */
+    public function __construct(
+        private readonly NotificationProviderInterface $notificationProvider,
+        private readonly bool $areNotificationsEnabled,
+    ) {
+    }
+
+    /** @return array<array-key, mixed> */
     #[ExposeInTemplate(name: 'notifications')]
     public function getNotifications(): array
     {
-        return [];
+        if (!$this->areNotificationsEnabled) {
+            return [];
+        }
+
+        return $this->notificationProvider->getNotifications();
     }
 }
