@@ -236,6 +236,10 @@
             <tag name="form.type" />
         </service>
 
+        <service id="sylius_admin.form.type.promotion_coupon_generator_instruction" class="Sylius\Bundle\AdminBundle\Form\Type\PromotionCouponGeneratorInstructionType" >
+            <tag name="form.type" />
+        </service>
+
         <service id="sylius_admin.form.type.shipping_category" class="Sylius\Bundle\AdminBundle\Form\Type\ShippingCategoryType" >
             <tag name="form.type" />
         </service>
@@ -250,6 +254,10 @@
         </service>
 
         <service id="sylius_admin.form.type.shipment_ship" class="Sylius\Bundle\AdminBundle\Form\Type\ShipmentShipType" >
+            <tag name="form.type" />
+        </service>
+
+        <service id="sylius_admin.form.type.shop_user" class="Sylius\Bundle\AdminBundle\Form\Type\ShopUserType" >
             <tag name="form.type" />
         </service>
 

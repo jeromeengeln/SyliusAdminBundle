@@ -2,7 +2,11 @@ sylius_twig_hooks:
     hooks:
         'sylius_admin.shipping_category.create.content':
             form:
-                template: '@SyliusAdmin/shared/crud/common/content/form.html.twig'
+                component: 'sylius_admin:shipping_category:form'
+                props:
+                    resource: '@=_context.resource'
+                    form: '@=_context.form'
+                    template: '@SyliusAdmin/shared/crud/common/content/form.html.twig'
                 configuration:
                     render_rest: false
                 priority: 0

@@ -11,8 +11,24 @@
 
 -->
 
-<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+<container
+    xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd"
+>
     <services>
+        <service
+            id="sylius_admin.twig.component.admin_user.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.admin_user" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.admin_user.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\AdminUserType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:admin_user:form" />
+        </service>
+
         <service
             id="sylius_admin.twig.component.catalog_promotion.form"
             class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
@@ -50,6 +66,30 @@
         </service>
 
         <service
+            id="sylius_admin.twig.component.currency.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.currency" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.currency.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\CurrencyType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:currency:form" />
+        </service>
+
+        <service
+            id="sylius_admin.twig.component.customer.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.customer" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.customer.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\CustomerType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:customer:form" />
+        </service>
+
+        <service
             id="sylius_admin.twig.component.customer_group.form"
             class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
         >
@@ -59,6 +99,30 @@
             <argument>Sylius\Bundle\AdminBundle\Form\Type\CustomerGroupType</argument>
 
             <tag name="sylius.live_component.admin" key="sylius_admin:customer_group:form" />
+        </service>
+
+        <service
+            id="sylius_admin.twig.component.exchange_rate.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.exchange_rate" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.exchange_rate.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\ExchangeRateType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:exchange_rate:form" />
+        </service>
+
+        <service
+            id="sylius_admin.twig.component.locale.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.locale" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.locale.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\LocaleType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:locale:form" />
         </service>
 
         <service
@@ -86,6 +150,30 @@
         </service>
 
         <service
+            id="sylius_admin.twig.component.product_association_type.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.product_association_type" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.product_association_type.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\ProductAssociationTypeType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:product_association_type:form" />
+        </service>
+
+        <service
+            id="sylius_admin.twig.component.product_review.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.product_review" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.product_review.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\ProductReviewType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:product_review:form" />
+        </service>
+
+        <service
             id="sylius_admin.twig.component.promotion.form"
             class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
         >
@@ -98,6 +186,18 @@
         </service>
 
         <service
+            id="sylius_admin.twig.component.shipping_category.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.shipping_category" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.shipping_category.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\ShippingCategoryType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:shipping_category:form" />
+        </service>
+
+        <service
             id="sylius_admin.twig.component.shipping_method.form"
             class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
         >
@@ -107,6 +207,30 @@
             <argument>Sylius\Bundle\AdminBundle\Form\Type\ShippingMethodType</argument>
 
             <tag name="sylius.live_component.admin" key="sylius_admin:shipping_method:form" />
+        </service>
+
+        <service
+            id="sylius_admin.twig.component.tax_category.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.tax_category" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.tax_category.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\TaxCategoryType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:tax_category:form" />
+        </service>
+
+        <service
+            id="sylius_admin.twig.component.tax_rate.form"
+            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+        >
+            <argument type="service" id="sylius.repository.tax_rate" />
+            <argument type="service" id="form.factory" />
+            <argument>%sylius.model.tax_rate.class%</argument>
+            <argument>Sylius\Bundle\AdminBundle\Form\Type\TaxRateType</argument>
+
+            <tag name="sylius.live_component.admin" key="sylius_admin:tax_rate:form" />
         </service>
 
         <service

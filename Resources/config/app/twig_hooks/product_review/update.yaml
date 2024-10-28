@@ -2,7 +2,11 @@ sylius_twig_hooks:
     hooks:
         'sylius_admin.product_review.update.content':
             form:
-                template: '@SyliusAdmin/shared/crud/common/content/form.html.twig'
+                component: 'sylius_admin:product_review:form'
+                props:
+                    resource: '@=_context.resource'
+                    form: '@=_context.form'
+                    template: '@SyliusAdmin/shared/crud/common/content/form.html.twig'
                 configuration:
                     render_rest: false
                 priority: 0
