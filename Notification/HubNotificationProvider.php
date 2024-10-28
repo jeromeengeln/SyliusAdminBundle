@@ -24,7 +24,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\Cache\ItemInterface;
 
-final class GusNotificationProvider implements NotificationProviderInterface
+final class HubNotificationProvider implements NotificationProviderInterface
 {
     public const LATEST_SYLIUS_VERSION_CACHE_KEY = 'latest_sylius_version';
 

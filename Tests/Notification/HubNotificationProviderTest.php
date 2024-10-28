@@ -25,13 +25,13 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\StreamInterface;
-use Sylius\Bundle\AdminBundle\Notification\GusNotificationProvider;
+use Sylius\Bundle\AdminBundle\Notification\HubNotificationProvider;
 use Sylius\Bundle\CoreBundle\SyliusCoreBundle;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Contracts\Cache\CacheInterface;
 
-final class GusNotificationProviderTest extends TestCase
+final class HubNotificationProviderTest extends TestCase
 {
     use ProphecyTrait;
 
@@ -47,7 +47,7 @@ final class GusNotificationProviderTest extends TestCase
 
     private ClockInterface|ObjectProphecy $clock;
 
-    private GusNotificationProvider $gusNotificationsProvider;
+    private HubNotificationProvider $hubNotificationsProvider;
 
     private static string $hubUri = 'www.doesnotexist.test.com';
 
@@ -62,7 +62,7 @@ final class GusNotificationProviderTest extends TestCase
         $this->cache = $this->prophesize(CacheInterface::class);
         $this->clock = $this->prophesize(ClockInterface::class);
 
-        $this->gusNotificationsProvider = new GusNotificationProvider(
+        $this->hubNotificationsProvider = new HubNotificationProvider(
             $this->client->reveal(),
             $this->requestStack->reveal(),
             $this->requestFactory->reveal(),
@@ -95,7 +95,7 @@ final class GusNotificationProviderTest extends TestCase
 
         $this->client->sendRequest(Argument::cetera())->willThrow(ConnectException::class);
 
-        $this->assertEmpty($this->gusNotificationsProvider->getNotifications());
+        $this->assertEmpty($this->hubNotificationsProvider->getNotifications());
     }
 
     /** @test */
@@ -123,7 +123,7 @@ final class GusNotificationProviderTest extends TestCase
         $externalResponse->getBody()->willReturn($stream->reveal());
         $this->client->sendRequest(Argument::cetera())->willReturn($externalResponse->reveal());
 
-        $this->assertEmpty($this->gusNotificationsProvider->getNotifications());
+        $this->assertEmpty($this->hubNotificationsProvider->getNotifications());
     }
 
     /** @test */
@@ -152,7 +152,7 @@ final class GusNotificationProviderTest extends TestCase
         $externalResponse->getBody()->willReturn($stream->reveal());
         $this->client->sendRequest(Argument::cetera())->willReturn($externalResponse->reveal());
 
-        $notifications = $this->gusNotificationsProvider->getNotifications();
+        $notifications = $this->hubNotificationsProvider->getNotifications();
 
         $this->assertNotEmpty($notifications);
         $this->assertArrayHasKey('version', $notifications);
