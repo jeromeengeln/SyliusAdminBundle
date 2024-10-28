@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\AdminBundle\Notification;
 
-use Traversable;
+use \Traversable;
 use Webmozart\Assert\Assert;
 
 final class CompositeNotificationProvider implements NotificationProviderInterface
@@ -32,7 +32,7 @@ final class CompositeNotificationProvider implements NotificationProviderInterfa
         $this->notificationProviders = $notificationProviders instanceof Traversable ? iterator_to_array($notificationProviders) : $notificationProviders;
     }
 
-    public function getNotifications(): array
+    public function getNotifications(array $context = []): array
     {
         $notifications = [];
         foreach ($this->notificationProviders as $notificationProvider) {

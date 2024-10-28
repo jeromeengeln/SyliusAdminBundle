@@ -15,6 +15,10 @@ namespace Sylius\Bundle\AdminBundle\Notification;
 
 interface NotificationProviderInterface
 {
-    /** @return array<array-key, mixed> */
-    public function getNotifications(): array;
+    /**
+     * @param array<mixed> $context
+     *
+     * @return array<array-key, mixed>
+     */
+    public function getNotifications(array $context = []): array;
 }

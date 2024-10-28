@@ -24,29 +24,29 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\Cache\ItemInterface;
 
-final class HubNotificationProvider implements NotificationProviderInterface
+final readonly class HubNotificationProvider implements NotificationProviderInterface
 {
-    public const LATEST_SYLIUS_VERSION_CACHE_KEY = 'latest_sylius_version';
+    public const LATEST_SYLIUS_VERSION_KEY = 'latest_sylius_version';
 
     public function __construct(
-        private readonly ClientInterface $client,
-        private readonly RequestStack $requestStack,
-        private readonly RequestFactoryInterface $requestFactory,
-        private readonly StreamFactoryInterface $streamFactory,
-        private readonly CacheInterface $cache,
-        private readonly ClockInterface $clock,
-        private readonly string $hubUri,
-        private readonly string $environment,
-        private readonly int $checkFrequency,
+        private ClientInterface $client,
+        private RequestStack $requestStack,
+        private RequestFactoryInterface $requestFactory,
+        private StreamFactoryInterface $streamFactory,
+        private CacheInterface $cache,
+        private ClockInterface $clock,
+        private string $hubUri,
+        private string $environment,
+        private int $checkFrequency,
     ) {
     }
 
-    public function getNotifications(): array
+    public function getNotifications(array $context = []): array
     {
         $metadata = $this->cache instanceof ItemInterface ? $this->cache->getMetadata() : [];
         $metadata[ItemInterface::METADATA_EXPIRY] = $this->clock->now()->modify(sprintf('+%d minutes', $this->checkFrequency))->getTimestamp();
 
-        $latestVersion = $this->cache->get(self::LATEST_SYLIUS_VERSION_CACHE_KEY, function () {
+        $latestVersion = $this->cache->get(self::LATEST_SYLIUS_VERSION_KEY, function (): ?string {
             return $this->getLatestVersion();
         });
 
@@ -58,7 +58,7 @@ final class HubNotificationProvider implements NotificationProviderInterface
         }
 
         return [
-            'version' => [
+            self::LATEST_SYLIUS_VERSION_KEY => [
                 'message' => 'sylius.ui.notifications.new_version_of_sylius_available',
                 'latest_version' => $latestVersion,
             ],
