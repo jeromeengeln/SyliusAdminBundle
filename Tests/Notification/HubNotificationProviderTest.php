@@ -71,6 +71,7 @@ final class HubNotificationProviderTest extends TestCase
             $this->clock->reveal(),
             self::$hubUri,
             'prod',
+            true,
             60,
         );
     }
@@ -155,8 +156,8 @@ final class HubNotificationProviderTest extends TestCase
         $notifications = $this->hubNotificationsProvider->getNotifications();
 
         $this->assertNotEmpty($notifications);
-        $this->assertArrayHasKey('version', $notifications);
-        $this->assertSame($notifications['version'], [
+        $this->assertArrayHasKey('latest_sylius_version', $notifications);
+        $this->assertSame($notifications['latest_sylius_version'], [
             'message' => 'sylius.ui.notifications.new_version_of_sylius_available',
             'latest_version' => '1.0.0',
         ]);

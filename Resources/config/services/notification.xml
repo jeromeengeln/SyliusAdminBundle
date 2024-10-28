@@ -32,6 +32,7 @@
             <argument type="service" id="clock" />
             <argument type="string">%sylius.admin.notification.uri%</argument>
             <argument type="string">%kernel.environment%</argument>
+            <argument>%sylius.admin.notification.hub_enabled%</argument>
             <argument>%sylius.admin.notification.frequency%</argument>
             <tag name="sylius_admin.notification" />
         </service>

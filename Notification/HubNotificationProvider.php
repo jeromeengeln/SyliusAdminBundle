@@ -37,6 +37,7 @@ final readonly class HubNotificationProvider implements NotificationProviderInte
         private ClockInterface $clock,
         private string $hubUri,
         private string $environment,
+        private bool $areHubNotificationsEnabled,
         private int $checkFrequency,
     ) {
     }
@@ -63,6 +64,11 @@ final readonly class HubNotificationProvider implements NotificationProviderInte
                 'latest_version' => $latestVersion,
             ],
         ];
+    }
+
+    public function supports(array $context = []): bool
+    {
+        return $this->areHubNotificationsEnabled;
     }
 
     private function getLatestVersion(): ?string

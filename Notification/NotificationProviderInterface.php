@@ -21,4 +21,7 @@ interface NotificationProviderInterface
      * @return array<array-key, mixed>
      */
     public function getNotifications(array $context = []): array;
+
+    /** @param array<mixed> $context */
+    public function supports(array $context = []): bool;
 }
