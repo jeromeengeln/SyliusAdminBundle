@@ -30,6 +30,7 @@ class FormComponent
 {
     /** @use ResourceFormComponentTrait<ProductVariantInterface> */
     use ResourceFormComponentTrait;
+
     use TemplatePropTrait;
 
     #[LiveProp(hydrateWith: 'hydrateProduct', dehydrateWith: 'dehydrateProduct', fieldName: 'product')]

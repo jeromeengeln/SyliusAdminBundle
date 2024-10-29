@@ -37,11 +37,11 @@ final class HubNotificationProviderTest extends TestCase
 
     private ClientInterface|ObjectProphecy $client;
 
-    private RequestStack|ObjectProphecy $requestStack;
+    private ObjectProphecy|RequestStack $requestStack;
 
-    private RequestFactoryInterface|ObjectProphecy $requestFactory;
+    private ObjectProphecy|RequestFactoryInterface $requestFactory;
 
-    private StreamFactoryInterface|ObjectProphecy $streamFactory;
+    private ObjectProphecy|StreamFactoryInterface $streamFactory;
 
     private CacheInterface|ObjectProphecy $cache;
 
@@ -133,7 +133,6 @@ final class HubNotificationProviderTest extends TestCase
         $request = $this->prophesize(RequestInterface::class);
         $stream = $this->prophesize(StreamInterface::class);
         $externalResponse = $this->prophesize(ResponseInterface::class);
-
 
         $this->cache->get('latest_sylius_version', Argument::type('callable'))->will(function ($args) {
             return $args[1]();
