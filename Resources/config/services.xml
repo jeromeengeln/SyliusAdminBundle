@@ -77,7 +77,7 @@
         <service id="sylius_admin.context.locale.admin_based" alias="sylius.context.locale.admin_based" />
 
         <service id="sylius.section_resolver.admin_uri_based_section_resolver" class="Sylius\Bundle\AdminBundle\SectionResolver\AdminUriBasedSectionResolver">
-            <argument>/admin</argument>
+            <argument>/%sylius_admin.path_name%</argument>
             <tag name="sylius.uri_based_section_resolver" priority="20" />
         </service>
         <service id="sylius_admin.section_resolver.admin_uri_based" alias="sylius.section_resolver.admin_uri_based_section_resolver" />
