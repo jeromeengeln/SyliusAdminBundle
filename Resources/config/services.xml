@@ -60,7 +60,7 @@
         </service>
 
         <service id="sylius_admin.section_resolver.admin_uri_based" class="Sylius\Bundle\AdminBundle\SectionResolver\AdminUriBasedSectionResolver">
-            <argument>/admin</argument>
+            <argument>/%sylius_admin.path_name%</argument>
             <tag name="sylius.uri_based_section_resolver" priority="20" />
         </service>
 
