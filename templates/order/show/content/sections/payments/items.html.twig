@@ -4,11 +4,11 @@
     {% if order.hasPayments %}
         <table class="table table-vcenter table-borderless table-sm card-table">
             <tbody>
-            <tr {{ sylius_test_html_attribute('payment') }}>
-                {% for payment in order.payments %}
+            {% for payment in order.payments %}
+                <tr {{ sylius_test_html_attribute('payment') }}>
                     {% hook 'item' with { resource: order, payment } %}
-                {% endfor %}
-            </tr>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     {% else %}
