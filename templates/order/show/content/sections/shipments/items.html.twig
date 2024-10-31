@@ -4,11 +4,11 @@
     {% if order.hasShipments %}
         <table class="table table-vcenter table-borderless table-sm card-table">
             <tbody>
-            <tr {{ sylius_test_html_attribute('shipment') }}>
-                {% for shipment in order.shipments %}
+            {% for shipment in order.shipments %}
+                <tr {{ sylius_test_html_attribute('shipment') }}>
                     {% hook 'item' with { shipment } %}
-                {% endfor %}
-            </tr>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     {% else %}
