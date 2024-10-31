@@ -86,8 +86,8 @@
             <argument>%sylius.admin.notification.enabled%</argument>
             <argument>%sylius.admin.notification.frequency%</argument>
             <tag name="twig.extension" />
+            <deprecated package="sylius/admin-bundle" version="1.14">The "%service_id%" service is deprecated since 1.14 and will be removed in 2.0.</deprecated>
         </service>
-        <service id="sylius_admin.twig.extension.notification_widget" alias="sylius.twig.extension.widget.admin_notification" />
 
         <service id="sylius.twig.extension.shop" class="Sylius\Bundle\AdminBundle\Twig\ShopExtension">
             <argument>%sylius.admin.shop_enabled%</argument>
