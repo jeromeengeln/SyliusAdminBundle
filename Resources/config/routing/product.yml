@@ -8,13 +8,6 @@ sylius_admin_product:
         form:
             type: Sylius\Bundle\AdminBundle\Form\Type\ProductType
         permission: true
-        vars:
-            all:
-                subheader: sylius.ui.manage_your_product_catalog
-                templates:
-                    form: "@SyliusAdmin/Product/_form.html.twig"
-            index:
-                icon: "tabler:cube"
     type: sylius.resource
 
 sylius_admin_product_create_simple:

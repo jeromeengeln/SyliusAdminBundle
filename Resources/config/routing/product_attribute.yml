@@ -9,13 +9,6 @@ sylius_admin_product_attribute:
         form:
             type: Sylius\Bundle\AdminBundle\Form\Type\ProductAttributeType
         permission: true
-        vars:
-            all:
-                subheader: sylius.ui.manage_attributes_of_your_products
-                templates:
-                    form: "@SyliusAdmin/ProductAttribute/_form.html.twig"
-            index:
-                icon: "tabler:cube-spark"
     type: sylius.resource
 
 sylius_admin_product_attribute_create:

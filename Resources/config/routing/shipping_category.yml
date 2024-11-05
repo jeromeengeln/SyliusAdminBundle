@@ -9,11 +9,4 @@ sylius_admin_shipping_category:
         form:
             type: Sylius\Bundle\AdminBundle\Form\Type\ShippingCategoryType
         permission: true
-        vars:
-            all:
-                subheader: sylius.ui.manage_shipping_categories_for_your_store
-                templates:
-                    form: "@SyliusAdmin/ShippingCategory/_form.html.twig"
-            index:
-                icon: "tabler:layout-list"
     type: sylius.resource

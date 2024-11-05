@@ -9,17 +9,6 @@ sylius_admin_promotion:
         form:
             type: Sylius\Bundle\AdminBundle\Form\Type\PromotionType
         permission: true
-        vars:
-            all:
-                subheader: sylius.ui.manage_discounts_and_promotional_campaigns
-                templates:
-                    form: "@SyliusAdmin/Promotion/_form.html.twig"
-            index:
-                icon: "tabler:shopping-cart-down"
-            update:
-                templates:
-                    form: "@SyliusAdmin/Promotion/_form.html.twig"
-                    toolbar: "@SyliusAdmin/Promotion/_toolbar.html.twig"
     type: sylius.resource
 
 sylius_admin_promotion_archive:

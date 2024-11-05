@@ -9,12 +9,4 @@ sylius_admin_customer_group:
         form:
             type: Sylius\Bundle\AdminBundle\Form\Type\CustomerGroupType
         permission: true
-        vars:
-            all:
-                header: sylius.ui.customer_groups
-                subheader: sylius.ui.manage_customer_groups
-                templates:
-                    form: "@SyliusAdmin/CustomerGroup/_form.html.twig"
-            index:
-                icon: "tabler:archive"
     type: sylius.resource
