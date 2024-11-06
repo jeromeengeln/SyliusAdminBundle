@@ -14,7 +14,7 @@ sylius_twig_hooks:
                 priority: 0
 
         'sylius_admin.security.login.page.logo':
-            logo:
+            image:
                 template: '@SyliusAdmin/security/common/logo/image.html.twig'
                 priority: 0
 
