@@ -9,11 +9,4 @@ sylius_admin_product_option:
         form:
             type: Sylius\Bundle\AdminBundle\Form\Type\ProductOptionType
         permission: true
-        vars:
-            all:
-                subheader: sylius.ui.manage_configuration_options_of_your_products
-                templates:
-                    form: "@SyliusAdmin/ProductOption/_form.html.twig"
-            index:
-                icon: "tabler:settings"
     type: sylius.resource

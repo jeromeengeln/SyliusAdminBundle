@@ -9,11 +9,4 @@ sylius_admin_tax_category:
         form:
             type: Sylius\Bundle\AdminBundle\Form\Type\TaxCategoryType
         permission: true
-        vars:
-            all:
-                subheader: sylius.ui.manage_taxation_of_your_products
-                templates:
-                    form: "@SyliusAdmin/TaxCategory/_form.html.twig"
-            index:
-                icon: "tabler:tags"
     type: sylius.resource

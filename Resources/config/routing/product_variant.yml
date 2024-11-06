@@ -13,7 +13,6 @@ sylius_admin_product_variant_index:
                 route:
                     parameters:
                         productId: $productId
-                subheader: sylius.ui.manage_variants
 
 sylius_admin_product_variant_create:
     path: /new

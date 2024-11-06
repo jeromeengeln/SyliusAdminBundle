@@ -9,13 +9,6 @@ sylius_admin_locale:
         form:
             type: Sylius\Bundle\AdminBundle\Form\Type\LocaleType
         permission: true
-        vars:
-            all:
-                subheader: sylius.ui.manage_languages_available_in_the_store
-                templates:
-                    form: "@SyliusAdmin/Locale/_form.html.twig"
-            index:
-                icon: "tabler:bubble-text"
     type: sylius.resource
 
 sylius_admin_locale_delete:

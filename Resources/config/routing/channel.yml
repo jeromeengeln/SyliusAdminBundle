@@ -9,11 +9,4 @@ sylius_admin_channel:
         form:
             type: Sylius\Bundle\AdminBundle\Form\Type\ChannelType
         permission: true
-        vars:
-            all:
-                subheader: sylius.ui.configure_channels_available_in_your_store
-                templates:
-                    form: "@SyliusAdmin/Channel/_form.html.twig"
-            index:
-                icon: "tabler:share"
     type: sylius.resource

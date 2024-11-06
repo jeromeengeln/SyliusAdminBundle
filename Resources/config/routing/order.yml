@@ -8,11 +8,6 @@ sylius_admin_order:
         form:
             type: Sylius\Bundle\AdminBundle\Form\Type\OrderType
         permission: true
-        vars:
-            all:
-                subheader: sylius.ui.process_your_orders
-            index:
-                icon: "tabler:shopping-cart"
     type: sylius.resource
 
 sylius_admin_order_show:

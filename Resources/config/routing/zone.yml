@@ -9,11 +9,6 @@ sylius_admin_zone:
         form:
             type: Sylius\Bundle\AdminBundle\Form\Type\ZoneType
         permission: true
-        vars:
-            all:
-                subheader: sylius.ui.manage_geographical_zones
-            index:
-                icon: "tabler:world"
     type: sylius.resource
 
 sylius_admin_zone_create:
@@ -33,7 +28,6 @@ sylius_admin_zone_create:
             redirect: sylius_admin_zone_update
             permission: true
             vars:
-                subheader: sylius.ui.manage_geographical_zones
                 route:
                     parameters:
                         type: $type

@@ -10,13 +10,6 @@ sylius_admin_admin_user:
         form:
             type: Sylius\Bundle\AdminBundle\Form\Type\AdminUserType
         permission: true
-        vars:
-            all:
-                subheader: sylius.ui.manage_users_able_to_access_administration_panel
-                templates:
-                    form: "@SyliusAdmin/AdminUser/_form.html.twig"
-            index:
-                icon: "tabler:lock"
     type: sylius.resource
 
 sylius_admin_admin_user_remove_avatar:

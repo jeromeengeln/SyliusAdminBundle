@@ -9,13 +9,6 @@ sylius_admin_payment_method:
         form:
             type: Sylius\Bundle\AdminBundle\Form\Type\PaymentMethodType
         permission: true
-        vars:
-            all:
-                subheader: sylius.ui.manage_payment_methods_available_to_your_customers
-                templates:
-                    form: "@SyliusAdmin/PaymentMethod/_form.html.twig"
-            index:
-                icon: "tabler:credit-card-pay"
     type: sylius.resource
 
 sylius_admin_payment_method_create:

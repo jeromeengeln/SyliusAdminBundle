@@ -9,13 +9,6 @@ sylius_admin_product_review:
         grid: sylius_admin_product_review
         form:
             type: Sylius\Bundle\AdminBundle\Form\Type\ProductReviewType
-        vars:
-            all:
-                subheader: sylius.ui.manage_reviews_of_your_products
-                templates:
-                    form: "@SyliusAdmin/ProductReview/_form.html.twig"
-            index:
-                icon: "tabler:news"
     type: sylius.resource
 
 sylius_admin_product_review_accept:
