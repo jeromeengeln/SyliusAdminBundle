@@ -20,9 +20,12 @@ final class PaymentMethodExtension extends AbstractExtension
 {
     /**
      * @param array<string, string> $gatewayFactories
+     * @param array<string> $excludedGatewayFactories
      */
-    public function __construct(private readonly array $gatewayFactories)
-    {
+    public function __construct(
+        private readonly array $gatewayFactories,
+        private readonly array $excludedGatewayFactories = [],
+    ) {
     }
 
     public function getFunctions(): array
@@ -37,6 +40,10 @@ final class PaymentMethodExtension extends AbstractExtension
      */
     public function getPaymentGateways(): array
     {
-        return $this->gatewayFactories;
+        return array_filter(
+            $this->gatewayFactories,
+            fn (string $gatewayFactory) => !in_array($gatewayFactory, $this->excludedGatewayFactories, true),
+            ARRAY_FILTER_USE_KEY
+        );
     }
 }

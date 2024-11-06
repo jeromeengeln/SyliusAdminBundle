@@ -41,6 +41,26 @@ final class ConfigurationTest extends TestCase
         );
     }
 
+    /** @test */
+    public function it_sets_default_twigs_payment_method_excluded_gateways(): void
+    {
+        $this->assertProcessedConfigurationEquals(
+            [[]],
+            ['twig' => ['payment_method' => ['excluded_gateways' => []]]],
+            'twig.payment_method.excluded_gateways',
+        );
+    }
+
+    /** @test */
+    public function it_allows_to_configure_twigs_payment_method_excluded_gateways(): void
+    {
+        $this->assertProcessedConfigurationEquals(
+            [['twig' => ['payment_method' => ['excluded_gateways' => ['offline-test']]]]],
+            ['twig' => ['payment_method' => ['excluded_gateways' => ['offline-test']]]],
+            'twig.payment_method.excluded_gateways',
+        );
+    }
+
     protected function getConfiguration(): Configuration
     {
         return new Configuration();

@@ -28,6 +28,16 @@ final class SyliusAdminExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasParameter('sylius.admin.notification.hub_enabled', false);
     }
 
+    /** @test */
+    public function it_loads_twig_payment_method_excluded_gateways_properly(): void
+    {
+        $this->container->setParameter('kernel.environment', 'dev');
+
+        $this->load(['twig' => ['payment_method' => ['excluded_gateways' => ['offline-test']]]]);
+
+        $this->assertContainerBuilderHasParameter('sylius.admin.twig.payment_method.excluded_gateways', ['offline-test']);
+    }
+
     protected function getContainerExtensions(): array
     {
         return [new SyliusAdminExtension()];

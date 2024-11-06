@@ -51,6 +51,7 @@
 
         <service id="sylius_admin.twig.extension.payment_method" class="Sylius\Bundle\AdminBundle\Twig\PaymentMethodExtension">
             <argument>%sylius.gateway_factories%</argument>
+            <argument>%sylius.admin.twig.payment_method.excluded_gateways%</argument>
             <tag name="twig.extension" />
         </service>
 
