@@ -37,3 +37,5 @@ app.register('product-taxon-tree', ProductTaxonTree);
 app.register('save-positions', SavePositionsController);
 app.register('compound-form-errors', CompoundFormErrorsController);
 app.register('tabs-errors', TabsErrorsController);
+
+app.debug = process.env.NODE_ENV !== 'production';

@@ -43,7 +43,7 @@ final class PaymentMethodExtension extends AbstractExtension
         return array_filter(
             $this->gatewayFactories,
             fn (string $gatewayFactory) => !in_array($gatewayFactory, $this->excludedGatewayFactories, true),
-            ARRAY_FILTER_USE_KEY
+            \ARRAY_FILTER_USE_KEY,
         );
     }
 }
