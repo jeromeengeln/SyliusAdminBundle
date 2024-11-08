@@ -28,7 +28,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 trigger_deprecation(
     'sylius/admin-bundle',
     '1.14',
-    'The "%s" class is deprecated and will be removed in Sylius 2.0. It will be replaced with the ResourceDeleteListener.',
+    'The "%s" class is deprecated and will be removed in Sylius 2.0. It will be replaced with the "Sylius\Bundle\AdminBundle\EventListener\ResourceDeleteListener".',
     ResourceDeleteSubscriber::class,
 );
 
